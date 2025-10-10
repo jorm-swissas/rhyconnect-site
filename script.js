@@ -33,8 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                const headerHeight = header.offsetHeight;
-                const targetPosition = target.offsetTop - headerHeight;
+                const targetPosition = target.offsetTop - 100;
                 
                 window.scrollTo({
                     top: targetPosition,
@@ -173,7 +172,8 @@ function showNotification(message, type = 'info') {
     });
 }
 
-// Parallax effect for hero section
+// Parallax effect for hero section (DISABLED)
+/*
 window.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
     const parallax = document.querySelector('.hero');
@@ -182,6 +182,7 @@ window.addEventListener('scroll', function() {
         parallax.style.transform = `translateY(${speed}px)`;
     }
 });
+*/
 
 // Keyboard navigation support
 document.addEventListener('keydown', function(e) {
