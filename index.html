@@ -23,6 +23,10 @@
                     <li><a href="#team">Team</a></li>
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
+                <button id="theme-toggle" aria-label="Dark/Light Mode umschalten">
+                    <svg id="icon-moon" width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;"><path d="M21 13.5A9 9 0 0 1 12.5 3a7.5 7.5 0 1 0 8.5 10.5z"/></svg>
+                    <svg id="icon-sun" width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="13" cy="13" r="5"/><g><line x1="13" y1="1" x2="13" y2="4"/><line x1="13" y1="22" x2="13" y2="25"/><line x1="1" y1="13" x2="4" y2="13"/><line x1="22" y1="13" x2="25" y2="13"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="19.66" y1="19.66" x2="21.78" y2="21.78"/><line x1="4.22" y1="21.78" x2="6.34" y2="19.66"/><line x1="19.66" y1="6.34" x2="21.78" y2="4.22"/></g></svg>
+                </button>
                 <div class="nav-toggle">
                     <span></span>
                     <span></span>
@@ -87,15 +91,15 @@
                 <div class="about-stats">
                     <div class="stat">
                         <h3>10k+</h3>
-                        <p>Aktive Nutzer</p>
+                        <p>Aktive Nutzer*</p>
                     </div>
                     <div class="stat">
                         <h3>500+</h3>
-                        <p>Events</p>
+                        <p>Events*</p>
                     </div>
                     <div class="stat">
                         <h3>50k+</h3>
-                        <p>Verbindungen</p>
+                        <p>Verbindungen*</p>
                     </div>
                 </div>
             </div>
@@ -182,7 +186,7 @@
                     
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>hello@rhyconnect.ch</span>
+                        <a href="mailto:hello@rhyconnect.ch" style="color:inherit;text-decoration:underline;">hello@rhyconnect.ch</a>
                     </div>
                     
                     <div class="contact-item">
@@ -204,15 +208,15 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm" autocomplete="off">
                         <div class="form-group">
-                            <input type="text" placeholder="Name" required>
+                            <input type="text" id="contactName" placeholder="Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="E-Mail" required>
+                            <input type="email" id="contactEmail" placeholder="E-Mail" required>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Nachricht" rows="5" required></textarea>
+                            <textarea id="contactMessage" placeholder="Nachricht" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-paper-plane"></i>
@@ -224,6 +228,10 @@
         </div>
     </section>
 
+    <!-- Fußnote für geschätzte Zahlen -->
+    <div style="text-align:center; color:#888; font-size:0.95em; margin: 2rem 0 0.5rem 0;">
+        * Erwartete/geschätzte Werte
+    </div>
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -265,5 +273,21 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+    // Kontaktformular: Öffnet Mailprogramm mit vorausgefüllten Feldern
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var name = document.getElementById('contactName').value;
+        var email = document.getElementById('contactEmail').value;
+        var message = document.getElementById('contactMessage').value;
+        var mailto = 'mailto:hello@rhyconnect.ch'
+            + '?subject=' + encodeURIComponent('Kontaktanfrage von ' + name)
+            + '&body=' + encodeURIComponent(
+                'Nachricht von ' + name + ':\n\n' + message + '\n\n' +
+                'Für Rückfragen: ' + email
+            );
+        window.location.href = mailto;
+    });
+    </script>
 </body>
 </html>
