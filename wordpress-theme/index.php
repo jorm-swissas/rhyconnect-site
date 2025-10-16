@@ -96,15 +96,15 @@
                 <div class="about-stats">
                     <div class="stat">
                         <h3>10k+</h3>
-                        <p>Aktive Nutzer</p>
+                        <p>Aktive Nutzer*</p>
                     </div>
                     <div class="stat">
                         <h3>500+</h3>
-                        <p>Events</p>
+                        <p>Events*</p>
                     </div>
                     <div class="stat">
                         <h3>50k+</h3>
-                        <p>Verbindungen</p>
+                        <p>Verbindungen*</p>
                     </div>
                 </div>
             </div>
@@ -221,7 +221,7 @@
                     
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>hello@rhyconnect.ch</span>
+                        <a href="mailto:hello@rhyconnect.ch">hello@rhyconnect.ch</a>
                     </div>
                     
                     <div class="contact-item">

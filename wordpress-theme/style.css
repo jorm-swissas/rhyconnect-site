@@ -1,7 +1,7 @@
 /*
 Theme Name: Rhyconnect
-Description: Custom WordPress theme for Rhyconnect - Die Party App. Modern, responsive design with beautiful Rhein-blue colors.
-Version: 1.0
+Description: Custom WordPress theme for Rhyconnect - Die Party App. Modern, responsive design with beautiful Rhein-blue colors. Includes dark/light mode toggle and mailto contact form.
+Version: 2.1
 Author: Rhyconnect Team
 */
 
@@ -557,6 +557,17 @@ h1, h2, h3, h4, h5, h6 {
     color: #4A90E2;
 }
 
+.contact-item a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #4A90E2;
+    text-decoration: underline;
+}
+
 .social-links {
     display: flex;
     gap: 1rem;
@@ -972,4 +983,252 @@ html {
 
 .legal-contact p {
     margin-bottom: 0.5rem;
+}
+
+/* Dark/Light Mode Toggle Button */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    transition: background 0.2s;
+}
+
+#theme-toggle svg {
+    width: 26px;
+    height: 26px;
+    color: #222;
+    stroke: #222;
+    background: none;
+}
+
+/* Dark Mode Styles */
+body.dark {
+    background: #181c22;
+    color: #f3f3f3;
+}
+
+body.dark #theme-toggle svg {
+    color: #fff;
+    stroke: #fff;
+}
+
+body.dark .hero {
+    background: linear-gradient(135deg, #23272f 0%, #181c22 100%);
+}
+
+body.dark .hero-title {
+    color: #fff;
+}
+
+body.dark .section-title {
+    color: #fff;
+}
+
+body.dark .header {
+    background: rgba(24, 28, 34, 0.97);
+}
+
+body.dark .nav-menu a {
+    color: #eee;
+}
+
+body.dark .nav-menu a:hover {
+    color: #4A90E2;
+}
+
+body.dark .nav-toggle span {
+    background: #eee;
+}
+
+body.dark .btn-primary {
+    background: linear-gradient(135deg, #2E86AB 0%, #4A90E2 100%);
+    color: #fff;
+}
+
+body.dark .btn-secondary {
+    color: #fff;
+    border-color: #4A90E2;
+}
+
+body.dark .btn-secondary:hover {
+    background: #4A90E2;
+    color: #fff;
+}
+
+body.dark .about {
+    background: #23272f;
+}
+
+body.dark .about-text,
+body.dark .about-text p {
+    color: #bbb;
+}
+
+body.dark .about-stats .stat {
+    background: #23272f;
+    border-left: 4px solid #4A90E2;
+}
+
+body.dark .stat h3 {
+    color: #4A90E2;
+}
+
+body.dark .stat p {
+    color: #bbb;
+}
+
+body.dark .features {
+    background: #181c22;
+}
+
+body.dark .feature-card {
+    background: #23272f;
+    color: #eee;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+body.dark .feature-card h3 {
+    color: #fff;
+}
+
+body.dark .feature-card p {
+    color: #bbb;
+}
+
+body.dark .feature-icon {
+    background: linear-gradient(135deg, #2E86AB 0%, #4A90E2 100%);
+}
+
+body.dark .team {
+    background: #23272f;
+}
+
+body.dark .team-member {
+    background: #181c22;
+    color: #eee;
+}
+
+body.dark .team-member h3 {
+    color: #fff;
+}
+
+body.dark .member-role {
+    color: #4A90E2;
+}
+
+body.dark .member-bio {
+    color: #bbb;
+}
+
+body.dark .contact {
+    background: #181c22;
+}
+
+body.dark .contact-info h3,
+body.dark .contact-info p {
+    color: #eee;
+}
+
+body.dark .contact-item i {
+    color: #4A90E2;
+}
+
+body.dark .contact-item a {
+    color: #eee;
+}
+
+body.dark .contact-item a:hover {
+    color: #4A90E2;
+}
+
+body.dark .contact-form {
+    background: #23272f;
+    color: #eee;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+body.dark .form-group input,
+body.dark .form-group textarea {
+    background: #181c22;
+    color: #eee;
+    border-color: #333;
+}
+
+body.dark .form-group input:focus,
+body.dark .form-group textarea:focus {
+    border-color: #4A90E2;
+}
+
+body.dark .social-link {
+    background: linear-gradient(135deg, #2E86AB 0%, #4A90E2 100%);
+    color: #fff;
+}
+
+body.dark .footer {
+    background: #23272f;
+    color: #eee;
+}
+
+body.dark .footer-section h4 {
+    color: #4A90E2;
+}
+
+body.dark .footer-section a {
+    color: #bbb;
+}
+
+body.dark .footer-section a:hover {
+    color: #fff;
+}
+
+body.dark .footer-bottom {
+    color: #888;
+    border-top: 1px solid #333;
+}
+
+body.dark .main-content,
+body.dark .legal-page {
+    background: #23272f;
+    color: #eee;
+}
+
+body.dark .legal-page h1 {
+    color: #4A90E2;
+    border-bottom: 3px solid #4A90E2;
+}
+
+body.dark .legal-page h2 {
+    color: #2E86AB;
+    border-left: 4px solid #4A90E2;
+}
+
+body.dark .legal-page h3 {
+    color: #eee;
+}
+
+body.dark .legal-content {
+    color: #bbb;
+}
+
+body.dark .legal-content a {
+    color: #4A90E2;
+}
+
+body.dark .legal-content a:hover {
+    border-bottom-color: #4A90E2;
+}
+
+body.dark .legal-contact {
+    background: linear-gradient(135deg, #2E86AB, #4A90E2);
+    color: #fff;
+}
+
+/* Transition for smooth theme switching */
+.header, .footer, .main-content, .legal-page {
+    transition: background 0.3s, color 0.3s;
 }

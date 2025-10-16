@@ -1,8 +1,8 @@
 <?php
 /*
 Theme Name: Rhyconnect
-Description: Custom WordPress theme for Rhyconnect - Die Party App. Modern, responsive design with beautiful Rhein-blue colors.
-Version: 1.0
+Description: Custom WordPress theme for Rhyconnect - Die Party App. Modern, responsive design with beautiful Rhein-blue colors. Includes dark/light mode toggle and mailto contact form.
+Version: 2.1
 Author: Rhyconnect Team
 */
 

@@ -1,3 +1,25 @@
+// Dark/Light Mode Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const iconMoon = document.getElementById('icon-moon');
+    const iconSun = document.getElementById('icon-sun');
+
+    // Initial state from localStorage
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+        iconMoon.style.display = 'none';
+        iconSun.style.display = 'block';
+    }
+
+    themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark');
+        const isDark = document.body.classList.contains('dark');
+        iconMoon.style.display = isDark ? 'none' : 'block';
+        iconSun.style.display = isDark ? 'block' : 'none';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+});
+
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
@@ -43,37 +65,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Contact Form Handling
+    // Contact Form Handling with mailto
     const contactForm = document.querySelector('.contact-form form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             // Get form data
-            const formData = new FormData(this);
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const message = this.querySelector('textarea').value;
-            
+            const name = this.querySelector('input[name="contact_name"]').value;
+            const email = this.querySelector('input[name="contact_email"]').value;
+            const message = this.querySelector('textarea[name="contact_message"]').value;
+
             // Simple validation
             if (!name || !email || !message) {
-                showNotification('Bitte fülle alle Felder aus.', 'error');
+                alert('Bitte fülle alle Felder aus.');
                 return;
             }
-            
+
             if (!isValidEmail(email)) {
-                showNotification('Bitte gib eine gültige E-Mail-Adresse ein.', 'error');
+                alert('Bitte gib eine gültige E-Mail-Adresse ein.');
                 return;
             }
-            
-            // Simulate form submission
-            showNotification('Nachricht wird gesendet...', 'info');
-            
-            // Here you would normally send the data to your server
+
+            // Create mailto link with form data
+            const subject = encodeURIComponent('Kontaktanfrage von ' + name);
+            const body = encodeURIComponent(
+                'Name: ' + name + '\n' +
+                'E-Mail: ' + email + '\n\n' +
+                'Nachricht:\n' + message
+            );
+
+            // Open mailto link
+            window.location.href = 'mailto:hello@rhyconnect.ch?subject=' + subject + '&body=' + body;
+
+            // Optional: Reset form after opening mailto
             setTimeout(() => {
-                showNotification('Vielen Dank für deine Nachricht! Wir melden uns bald bei dir.', 'success');
                 this.reset();
-            }, 2000);
+            }, 500);
         });
     }
 
